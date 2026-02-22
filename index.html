@@ -1,79 +1,72 @@
 <style>
-
-.frame-le {
-max-width: 100%;
-margin: 0 auto;
-border: 1px solid #ddd;
-padding: 24px;
-display: flex;
-flex-direction: column;
-gap: 24px;
+.frame-le{
+  max-width: 100%;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 /* gradient wrapper */
 .outline{
-padding: 2px; /* gradient thickness */
-background: linear-gradient(90deg, #1A2919, #9EB59D);
-
-display: flex; /* <-- key */
+  padding: 2px; /* gradient thickness */
+  background: linear-gradient(90deg, #1A2919, #9EB59D);
+  display: flex; /* wrapper holds the gradient ring */
 }
 
+/* inner box */
 .block{
-background: #e0e0e0;
-padding: 24px;
-border-radius: inherit;
-
-flex: 1; /* <-- key: fill wrapper height */
-width: 100%; /* ensures full width inside */
+  background: #e0e0e0;
+  padding: 24px;
+  flex: 1;       /* fill wrapper height */
+  width: 100%;   /* fill wrapper width */
+  height: 100%;  /* ensure fill when wrapper has fixed height */
 }
 
-.header {
-width: 100%;
+/* layout */
+.header{ width: 100%; }
+
+.main-le{
+  display: flex;
+  gap: 24px;
+  flex-wrap: nowrap;
+  align-items: stretch;
 }
 
-.main-le {
-  display:flex;
-  gap:24px;
-  flex-wrap: nowrap;   /* key */
-  align-items: stretch; /* optional */
+.left{
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.left {
-flex: 2;
-display: flex;
-flex-direction: column;
-gap: 24px;
+/* RIGHT: fixed-size wrapper (keep gradient here) */
+.outline.right{
+  width: 172px;
+  height: 328px;
+  flex: 0 0 auto; /* opt out of flex sizing */
 }
 
-.right {
-width: 172px;
-height: 328px;
-
-flex: 0 0 auto; /* opt out of flex sizing */
+/* RIGHT: apply the image to the INNER block (not the wrapper) */
+.outline.right > .block{
+  background: url("https://i.ibb.co/WpqBn4hp/persp.png") center / cover no-repeat;
 }
 
-.right .block {
-background-image: url("https://i.ibb.co/WpqBn4hp/persp.png");
-background-repeat: no-repeat;
-background-size: cover; /* fills the box */
-background-position: center; /* keeps it centered */
+/* mini row */
+.mini-row{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.mini-row {
-display: flex;
-gap: 16px;
-flex-wrap: wrap;
+.mini{
+  flex: 1;
+  min-width: 120px;
 }
 
-.mini {
-flex: 1;
-min-width: 120px;
-}
-
-.footer {
-width: 100%;
-}
-
+.footer{ width: 100%; }
 </style>
 
 <div class="frame-le">
